@@ -65,7 +65,7 @@ func onChatMsg(cc *ClientConn, cmd *mt.ToSrvChatMsg) (string, bool) {
 
 		if !ChatCmdExists(cmdName) {
 			cc.Log("<-", "unknown command", cmdName)
-			return "Command not found.", true
+			return "", false
 		}
 
 		chatCmdsMu.RLock()
